@@ -1,0 +1,8 @@
+# sqlite database
+*.sqlite
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Specific Files
+maca/settings_secret.py
