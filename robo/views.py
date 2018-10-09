@@ -1,10 +1,10 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Robot, Warehouse
+from .models import Warehouse
 from .serializers import WarehouseSerializer
 
 
@@ -90,7 +90,7 @@ def get_warehouse_list(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def update_warehouse(request, wid):
     """
     :param request:
@@ -126,7 +126,7 @@ def update_warehouse(request, wid):
     return Response(msg, status=status.HTTP_200_OK)
 
 
-@api_view(['GET'])
+@api_view(['DELETE'])
 def delete_warehouse(request, wid):
     """
     Remove a warehouse
@@ -145,11 +145,4 @@ def delete_warehouse(request, wid):
     except Exception as e:
         return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
-    return Response("Warehouse successfully deleted.", status=status.HTTP_200_OK)
-
-
-def create(request):
-    robo_name = request.GET.get('name')
-    r = Robot(name=robo_name)
-    r.save()
-    return HttpResponse("Robot created")
+    return Response("Warehouse successfully deleted.", status=status.HTTP_204_NO_CONTENT)
