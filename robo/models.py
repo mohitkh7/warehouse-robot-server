@@ -73,3 +73,9 @@ class Inventory(models.Model):
     position_x = models.IntegerField()
     position_y = models.IntegerField()
     warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Inventories"

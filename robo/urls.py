@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views, views_robot
+from . import views, views_robot, views_inventory
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -16,7 +16,9 @@ urlpatterns = [
     path('robot/update/<int:pk>/', views_robot.RobotUpdate.as_view(), name="update-robot"),
     path('robot/delete/<int:pk>/', views_robot.RobotDelete.as_view(), name="delete-robot"),
 
-    path('robot/<int:pk>/', views_robot.RobotDetail.as_view()),
-
-    path('create', views.create, name="create")
+    path('inventory/create/', views_inventory.InventoryCreate.as_view(), name="create-inventory"),
+    path('inventory/get/all/', views_inventory.InventoryList.as_view(), name="get-all-inventory"),
+    path('inventory/get/<int:pk>/', views_inventory.InventoryDetail.as_view(), name="get-inventory"),
+    path('inventory/update/<int:pk>/', views_inventory.InventoryUpdate.as_view(), name="update-inventory"),
+    path('inventory/delete/<int:pk>/', views_inventory.InventoryDelete.as_view(), name="delete-inventory"),
 ]
