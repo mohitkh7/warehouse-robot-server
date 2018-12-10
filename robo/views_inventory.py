@@ -1,5 +1,5 @@
-from .models import Inventory
-from .serializers import InventorySerializer
+from .models import Inventory, Sample
+from .serializers import InventorySerializer, SampleSerializer
 from rest_framework import generics
 
 
@@ -26,3 +26,8 @@ class InventoryUpdate(generics.UpdateAPIView):
 class InventoryDelete(generics.DestroyAPIView):
     queryset = Inventory.objects.all()
     serializer_class = InventorySerializer
+
+
+class SampleCreate(generics.CreateAPIView):
+    queryset = Sample.objects.all()
+    serializer_class = SampleSerializer

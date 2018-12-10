@@ -120,6 +120,7 @@ def update_warehouse(request, wid):
         error_msg = "Warehouse does not exist. Incorrect id"
         return Response(error_msg, status=status.HTTP_404_NOT_FOUND)
     except Exception as e:
+        print(str(e))
         return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
     msg = "Warehouse details successfully updated"

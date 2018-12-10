@@ -21,4 +21,6 @@ urlpatterns = [
     path('inventory/get/<int:pk>/', views_inventory.InventoryDetail.as_view(), name="get-inventory"),
     path('inventory/update/<int:pk>/', views_inventory.InventoryUpdate.as_view(), name="update-inventory"),
     path('inventory/delete/<int:pk>/', views_inventory.InventoryDelete.as_view(), name="delete-inventory"),
+
+    path('sample/create/', views_inventory.SampleCreate.as_view(), name="create-sample"),
 ]

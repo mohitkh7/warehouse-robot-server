@@ -26,6 +26,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'mohitkh7.localhost.run',
     'mohitkh73.localhost.run',
+    'mohitkh72.localhost.run',
+    'mohitkh77.localhost.run',
+    'mohitkh79.localhost.run',
     'localhost',
     '127.0.0.1',
 ]
